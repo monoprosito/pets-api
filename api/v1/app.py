@@ -2,6 +2,7 @@
 """App module
 """
 from flask import Flask, jsonify
+from models import storage
 from api.v1.views import app_views
 from os import getenv
 
@@ -9,6 +10,13 @@ from os import getenv
 app = Flask(__name__)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 app.register_blueprint(app_views, url_prefix='/api/v1')
+
+
+@app.teardown_appcontext
+def teardown_db(error):
+    """Closes the database again at the end of the request.
+    """
+    storage.close()
 
 
 @app.errorhandler(404)
