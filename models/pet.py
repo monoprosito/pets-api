@@ -12,7 +12,7 @@ from sqlalchemy.orm import relationship
 
 class Pet(BaseModel, Base):
     if models.storage_t == "db":
-        __tablename__ = 'pet'
+        __tablename__ = 'pets'
         name = Column(String(128), nullable=False)
         age = Column(Integer, nullable=False)
         color = Column(String(20), nullable=False)
