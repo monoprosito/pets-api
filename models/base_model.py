@@ -42,7 +42,6 @@ class BaseModel:
                 self.updated_at = datetime.utcnow()
             if kwargs.get("uuid", None) is None:
                 self.uuid = str(uuid.uuid4())
-            if kwargs.get("id", None) is None:
 
         else:
             self.uuid = str(uuid.uuid4())
