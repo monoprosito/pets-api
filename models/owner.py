@@ -15,7 +15,7 @@ class Owner(Base):
     """Representation of owner"""
     if models.storage_t = 'db':
         __tablename__ = 'owner'
-        firs_name = Column(String(128), nullable=False)
+        first_name = Column(String(128), nullable=False)
         last_name = Column(String(128), nullable=False)
         pet = relationship("Pet", uselist=False, back_populates="owner")
 
