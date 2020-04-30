@@ -1,18 +1,18 @@
 #!/usr/bin/python3
-""" holds class owner"""
+""" holds class pet"""
 
 import models
 from models.base_model import BaseModel, Base
 from models.owner import Owner
 from os import getenv
 import sqlalchemy
-from sqlalchemy import Column, String
+from sqlalchemy import Column, String, Integer, ForeignKey
 from sqlalchemy.orm import relationship
 
 
-class Pet(Base):
+class Pet(BaseModel, Base):
     if models.storage_t == "db":
-        __tablename__ = 'pet'
+        __tablename__ = 'pets'
         name = Column(String(128), nullable=False)
         age = Column(Integer, nullable=False)
         color = Column(String(20), nullable=False)
@@ -23,4 +23,3 @@ class Pet(Base):
         name = ""
         age = 0
         color = ""
-

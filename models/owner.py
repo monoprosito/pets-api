@@ -10,11 +10,10 @@ from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
 
 
-
-class Owner(Base):
+class Owner(BaseModel, Base):
     """Representation of owner"""
-    if models.storage_t = 'db':
-        __tablename__ = 'owner'
+    if models.storage_t == 'db':
+        __tablename__ = 'owners'
         first_name = Column(String(128), nullable=False)
         last_name = Column(String(128), nullable=False)
         pet = relationship("Pet", uselist=False, back_populates="owner")
