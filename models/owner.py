@@ -21,3 +21,15 @@ class Owner(BaseModel, Base):
     else:
         firs_name = ""
         last_name = ""
+
+
+    if models.storage_t != "db":
+        @property
+        def pet(self):
+            """getter for list of pet instance related to the owner"""
+            pet_list = []
+            all_pets = models.storage.all(Pet)
+            for pet in all_pets.values():
+                if pet.owner == self.uuid:
+                    pet_list.append(Pet)
+            return pet_list
