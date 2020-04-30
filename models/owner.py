@@ -19,7 +19,7 @@ class Owner(BaseModel, Base):
         pet = relationship("Pet", uselist=False, back_populates="owner")
 
     else:
-        firs_name = ""
+        first_name = ""
         last_name = ""
 
 
